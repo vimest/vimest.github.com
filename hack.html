@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Vimest" />
+	<meta name="generator" content="GVIM 7.3" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />	
+	<title>Hack</title>
+	<style>
+		*{margin:0;padding:0;}
+		body{background:#333;color:#f9f9f9;padding:1em;}
+		pre{font-family:monaco,tahoma,arial,\5b8b\4f53,sans-serif;font-size:14px;}
+		#btn{
+			height:40px;line-height:38px;text-align:center;float:left;
+			padding:0 20px;font-size:12px;font-weight:bold;font-family:微软雅黑;color:#fff;
+			background: url(iright.png) right top repeat;
+			background:url(ileft.png) no-repeat left top,url(iright.png) no-repeat right top;
+			filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='ileft.png', sizingMethod='crop');
+		}
+	</style>
+</head>
+<body>
+	<code>
+		<pre>
+/*ie6透明png滤镜*/
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src="");
+_background:none;
+
+/*ie6透明滤镜*/
+_filter:alpha(opacity=50);
+
+/*ie678 RGBA 前两位为透明度，后六位为十六进制颜色代码*/
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000)\9;
+<input type="text" id="val1" />
+<input type="text" id="val2" />
+<input type="button" value="convert" id="convert-btn" />  结果 = (透明度*255).toString(16);
+<script>
+with(document){
+	getElementById('convert-btn').onclick = function(){
+		getElementById('val2').value = (getElementById('val1').value*255).toString(16).substring(0,2);
+	};
+}
+</script>
+/*ie6固定定位*/
+*html{overflow:hidden;}
+*html body{overflow:auto;height:100%;}
+.fixed{_position:absolute;}
+
+/*ie678 实现单元素多背景（最多两张），滤镜引入的图片不能repeat/position，默认左上，且不能修改*/
+background:url(iright.png) right top repeat;			//如果浏览器能读懂下面的声明，这条声明将会被覆盖，不能读懂则会和滤镜"合并"形成双背景
+background:url(ileft.png) no-repeat left top,url(iright.png) no-repeat right top;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='ileft.png', sizingMethod='crop');
+<div id="btn">some text</div>
+
+
+/*让ie6支持最大宽度和最小宽度*/
+ width:expression(document.body.clientWidth < 961 ? "960px" : document.body.clientWidth > 1261 ? "1260px" : "auto");
+
+//跨浏览器的onmousewheel
+function getWheelValue(e){ 
+	e = e||event; 
+	return (e.wheelDelta ? e.wheelDelta/120 : -(e.detail%3 == 0 ? e.detail/3 : e.detail)); 
+} 
+function mouseWheel(obj,type,fn){ 
+	var isFirefox = typeof document.body.style.MozUserSelect != 'undefined'; 
+	if(obj.addEventListener) {
+	obj.addEventListener(isFirefox ? 'DOMMouseScroll' : type,fn,false); 
+	} else {
+		obj.attachEvent( 'on'+type,fn ); 
+	}
+	return fn; 
+} 
+</pre>
+	</code>
+</body>
+</html>
