@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Vimest">
+	<meta name="generator" content="GVIM 7.3">
+	<meta name="keywords" content="">
+	<meta name="description" content="">	
+	<title>xyz weibo</title>
+	<link rel="stylesheet" href="base.css" />
+	<link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" />
+	<style>
+		html{background:url(tbg.png);overflow-x:hidden;}
+		#weibo article{width:240px;float:left;margin:10px;padding:10px;background-color:#e1decf;border-radius:2px;box-shadow:1px 2px 2px rgba(0,0,0,.8);}
+		#weibo article img{max-width:100%;margin-bottom:10px;vertical-align:bottom;border-radius:2px;}
+		#weibo article img:hover{opacity:.9;}
+		#weibo article .feed{padding:6px 3px 3px;border-top:2px dashed #ccc;text-indent:2em;line-height:1.8}
+	</style>
+</head>
+<body>
+	<section id="weibo" class="clear"></section>
+	<script src="jquery-1.7.2.min.js"></script>
+	<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1592660272" type="text/javascript" charset="utf-8"></script>
+	<script src="jquery.masonry.min.js"></script>
+	<script src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<script>
+		$(function(){
+		var body = $('body'),weibo = $('#weibo');
+		var curPage = 1;
+		var page = {
+			reflow:function(data){
+				console.dir(data);
+				for(var i=0;i<data.length;i++) {
+					var current = data[i],article = $('<article />'),html = '';
+					if(current.bmiddle_pic){
+						html += "<a href=\""+current.bmiddle_pic+"\" class=\"fancybox\"><img src=\""+current.thumbnail_pic+"\" /></a>"
+					}
+					html += '<div class="feed">'+current.text+'</div>';
+					article.html(html);
+					weibo.append(article).masonry('reload');
+				};
+				$('.fancybox').fancybox({
+					autoScale:false
+				});
+				$('#weibo').masonry({
+					itemSelector:'article',
+					columnWidth:280
+				});
+			}
+		}
+		if(WB2.checkLogin() != true){
+			WB2.login('home_timeline');
+		}else{
+			home_timeline();
+		}
+		function home_timeline(pp){
+			WB2.anyWhere(function(W){
+				W.parseCMD("/statuses/friends_timeline.json", function(sResult, bStatus){
+					page.reflow(sResult.statuses);
+				},{feature:2,page:curPage},{method:'GET'});
+			});
+		};
+		$(window).bind('scroll',function(){
+			if($(this).scrollTop() + $(window).height() > $(document).height() - 50){
+				home_timeline(curPage++);
+			}
+		});
+		})
+	</script>
+</body>
+</html>
