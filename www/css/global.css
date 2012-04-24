@@ -1,13 +1,13 @@
-html{background:#9b9b9b url(/images/global/page-bg.png) repeat-x;}
-body{background:url(/images/global/wave.png) no-repeat 33% 46px;}
+html{background:#9b9b9b url(../images/global/page-bg.png) repeat-x;}
+body{background:url(../images/global/wave.png) no-repeat 33% 46px;}
 .layout,#header,#container{width:978px;margin:0 auto;}
 #header{height:173px;position:relative;}
 #header menu{height:25px;line-height:23px;font-weight:bold;text-align:right;padding-right:27px;}
 #header menu a{background-repeat:no-repeat;background-position:left center;margin-left:14px;color:#ccc;padding-left:18px;}
 #addFav{background-image:url(../images/icon/fav-a.png);}
 #setHome{background-image:url(../images/icon/home-a.png);}
-#logo{clear:both;text-indent:-9999px;float:left;background:url(/images/global/logo.png) no-repeat;margin:28px 0 0 10px;height:110px;width:237px;}
-#nav{width:522px;display:inline;height:36px;padding:13px 0 0 59px;background:url(/images/global/nav-sprite.png) no-repeat;float:right;margin-right:136px;}
+#logo{clear:both;text-indent:-9999px;float:left;background:url(../images/global/logo.png) no-repeat;margin:28px 0 0 10px;height:110px;width:237px;}
+#nav{width:522px;display:inline;height:36px;padding:13px 0 0 59px;background:url(../images/global/nav-sprite.png) no-repeat;float:right;margin-right:136px;}
 #nav a{margin-right:57px;background-image:url(../images/global/nav-sprite.png);background-repeat:no-repeat;float:left;text-indent:-9999px;width:78px;height:18px;}
 #nav .home{background-position:left -51px;margin-right:59px;width:38px;}
 #nav .about-us{background-position:-97px -51px;}
@@ -17,7 +17,7 @@ body{background:url(/images/global/wave.png) no-repeat 33% 46px;}
 #nav .about-us:hover{background-position:-97px -91px;}
 #nav .intro:hover{background-position:-240px -91px;}
 #nav .join:hover{background-position:-383px -91px;}
-#header h2.desc,#header h3.desc{position:absolute;background-image:url(/images/global/desc-sprite.png);background-repeat:no-repeat;text-indent:-9999px;}
+#header h2.desc,#header h3.desc{position:absolute;background-image:url(../images/global/desc-sprite.png);background-repeat:no-repeat;text-indent:-9999px;}
 #header h2.desc{width:330px;height:44px;top:90px;left:262px;}
 #header h3.desc{width:395px;height:24px;top:140px;left:422px;background-position:left bottom;}
 #sider-primary{float:left;width:220px;}
@@ -27,7 +27,7 @@ body{background:url(/images/global/wave.png) no-repeat 33% 46px;}
 #login label,#login .textbox{display:block;color:#fff;}
 #login label{line-height:26px;font-weight:bold;text-indent:2px;}
 #login .textbox{font-family:georgia;}
-#login .login,#login .register{width:74px;height:32px;text-indent:-9999px;background-color:transparent;background-image:url(/images/global/login-btn-sprite.png);background-repeat:no-repeat;float:left;margin-top:11px;}
+#login .login,#login .register{width:74px;height:32px;text-indent:-9999px;background-color:transparent;background-image:url(../images/global/login-btn-sprite.png);background-repeat:no-repeat;float:left;margin-top:11px;}
 #login .register{background-position:right top;float:right;}
 #login .textbox{height:24px;line-height:24px;border:none;width:163px;background-color:#5f5f5f;}
 #links a{display:block;text-indent:-9999px;margin:0 auto 2px;width:215px;height:46px;background:url(../images/global/links-btn-sprite.png) no-repeat;}
