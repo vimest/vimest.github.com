@@ -1,5 +1,5 @@
 #gallery{height:197px;width:524px;padding:10px 11px 10px 9px;overflow:hidden;z-index:1;background:url(../images/slider.png) no-repeat;margin-bottom:6px;}
-#gallery .slides{position:relative;overflow:hidden;}
+#gallery .slides{position:relative;width:524px;height:197px;overflow:hidden;}
 #gallery .container{width:524px;height:198px;overflow:hidden;display:block;z-index:88;}
 #gallery .pagination{position:absolute;z-index:99;
 background-image:url(../images/slides-bg.png);padding:5px 3px;right:0;bottom:7px;
