@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Vimest" />
+	<meta name="generator" content="GVIM 7.3" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />	
+	<title>xyzGallery</title>
+	<style>
+		*{margin:0;padding:0;font:normal 12px georgia;}
+		a:link,a:visited{text-decoration:none;color:#3f3f3f;}
+		a:hover{text-decoration:underline;}
+		img{vertical-align:bottom;}
+		p{line-height:160%;}
+		ul{list-style:none;}
+		.layout{width:950px;margin:0 auto;}
+		.clear:after{display:table;clear:both;content:"";}
+		.pic img{border-radius:2px;}
+		.mark{display:inline-block;width:16px;vertical-align:middle;height:16px;margin:0 8px 0 2px;background:url(homepage/images/mark.png) no-repeat;}
+		.mark:hover{background-position:left bottom;}
+
+		/*
+		@media screen and (min-width:1024px){html{background:url(l/l.png) no-repeat right bottom;}}
+		*/
+		html{background-image:url(homepage/images/bgA.png);}
+		#header{height:48px;background:url(homepage/images/headerBg.png) repeat-x;}
+		#logo{width:235px;height:48px;float:left;background:url(homepage/images/logoMain.png) no-repeat center 5px,
+			url(homepage/images/logoBg.png) no-repeat center center;display:block;
+		}
+		#footer{background:url(homepage/images/footerBg.png) repeat-x;overflow:hidden;height:218px;}
+		#copyright{height:38px;line-height:40px;color:#f2d6d6;}
+		#aboutMe,#social{text-align:justify;height:180px;color:#afafaf;float:left;width:50%;-moz-box-sizing:border-box;box-sizing:border-box;}
+		#aboutMe h3,#social h3{margin-bottom:18px;text-indent:-9999px;border-bottom:1px solid #444545;height:53px;background-repeat:no-repeat;background-position:6px center;}
+		#aboutMe h3{background-image:url(homepage/images/aboutMe.png);}
+		#aboutMe .pic{float:left;margin-right:8px;position:relative;}
+		#aboutMe .pic::after{content:"";position:absolute;left:0;top:0;width:100%;height:100%;
+			box-shadow:0 0 0 5px rgba(255,255,255,.4) inset,
+			5px 5px 5px 0 rgba(0,0,0,.5) inset,
+			-5px -5px 5px 0 rgba(0,0,0,.5) inset,
+			1px 1px 3px 1px rgba(0,0,0,.5);
+		}
+		#social h3{background-image:url(homepage/images/social.png);}
+		#social h3 a{float:right;background:url(homepage/images/socialSprite.png) no-repeat;width:25px;height:25px;margin:18px 0 0 9px;}
+		#social .dribbble{background-position:left -1px;}
+		#social .facebook{background-position:-33px -1px;}
+		#social .twitter{background-position:-66px -1px;}
+		#social .you2be{background-position:-100px top;}
+		#social .rss{background-position:-132px top;}
+		#social .twitterDynamic{position:relative;}
+		#social .twitterDynamic::after{right:4px;bottom:-41px;width:61px;height:40px;position:absolute;content:"";background:url(homepage/images/twitterDynamicPrompt.png) no-repeat}
+		#social .twitterDynamic .item{padding:0 20px;margin-left:30px;color:#a7a7a7;background:url(homepage/images/twitterBird.png) no-repeat left 4px;}
+		#social .twitterDynamic .at{color:#ecebe5}
+		#social .twitterDynamic .ago{color:#595858;}
+		#nav{float:right;}
+		#nav a:link,#nav a:visited{float:left;line-height:48px;margin-right:22px;font-size:13px;text-transform:capitalize;color:#898888;}
+		#nav a:hover{color:#c8c8c8;}
+
+		#container{
+			padding:10px 0 30px;
+			background:url(homepage/images/bgD.png) left top repeat-x,
+			url(homepage/images/bgD.png) left bottom repeat-x,
+			url(homepage/images/bgA.png) left 10px repeat;
+		}
+
+		/*main*/
+		#main{float:left;width:500px;}
+		#leaveComments{padding:15px;background-image:url(homepage/images/bgC.png);position:relative;}
+		#leaveComments::before,#leaveComments::after{content:"";position:absolute;}
+		#leaveComments::before{background:url(homepage/images/leaveCommentPrompt.png) no-repeat;width:114px;right:8px;top:-50px;height:41px;}
+		#leaveComments::after{background:url(homepage/images/leaveCommentShadow.png) no-repeat center bottom;width:487px;height:15px;bottom:-15px;}
+		#leaveComments label{float:left;width:63px;padding-right:9px;background-image:url(homepage/images/bgA.png);height:30px;line-height:30px;text-align:right;}
+		#leaveComments p{margin-top:13px;}
+		#leaveComments p:first-child{margin-top:0;}
+		#leaveComments .textBox,#leaveComments .commentBox{border:none;width:390px;padding:0 3px;border-left:2px solid #737269;}
+		#leaveComments .textBox{height:30px;line-height:30px;}
+		#leaveComments .commentBox{resize:vertical;height:120px;max-height:200px;padding:5px 3px;}
+
+		/*post detail*/
+		#detail .header figcaption{height:52px;padding:0 10px;color:#424242;font-size:18px;line-height:52px;background-color:#fff;}
+		#detail .info{fonts-size:11px;padding:10px;color:#7a7a7a;}
+		#detail .info a{color:#635f44;}
+		#detail .article{padding:14px 17px;border-radius:2px;background-color:#fff;line-height:180%;position:relative;}
+		#detail .article::after{bottom:-9px;background:url(homepage/images/shadowC.png) no-repeat;content:"";position:absolute;width:489px;height:9px;}
+		#detail .share{margin-top:20px;border:1px solid #ebeae3;height:21px;line-height:21px;border-width:1px 0;padding:1px;color:#3b5997;}
+		#detail .share a{float:right;width:21px;height:21px;background:url(homepage/images/shareSprite.png) no-repeat;}
+		#detail .share .twitter{background-position:left top;}
+		#detail .share .facebook{background-position:-21px top;}
+
+		#commentList{margin-bottom:72px;}
+		#commentList .pic{float:left;margin-top:2px;}
+		#commentList li{margin-top:52px;}
+		#commentList .comment{color:#424242;line-height:160%;float:right;border-radius:2px;padding:10px;background-color:#fff;width:430px;-moz-box-sizing:border-box;box-sizing:border-box;position:relative;}
+		#commentList .comment::before{left:-10px;top:20px;content:"";position:absolute;background:url(homepage/images/commentArrow.png) no-repeat;width:10px;height:10px;}
+		/*<!--#commentList .comment::after{content:"";position:absolute;right:0;bottom:-15px;background:url(homepage/images/shadowR.png) no-repeat;width:307px;height:15px;}-->*/
+		#commentList .comment .meta{color:#cccabd;margin-top:16px;position:absolute;}
+		#commentList .comment .user{color:#827e63;}
+
+
+		/*side*/
+		#side{float:right;background-image:url(homepage/images/bgC.png);width:400px;padding:49px 10px 100px;box-sizing:border-box;-moz-box-sizing:border-box;}
+		#side > div > h3{text-indent:-9999px;background:url(homepage/images/columnCaptionSprite.png) no-repeat;}
+		#side .totallyRandom h3{background-position:left top;height:21px;margin-bottom:27px;}
+		#side .lastestPhotos h3{background-position:left -24px;height:15px;margin-bottom:35px;}
+		#side .recentComments h3{background-position:left bottom;height:14px;margin-bottom:22px;}
+
+		.shadowL::before,.shadowR::after,.totallyRandom .item::after,.recentComments .item::after,#commentList .comment::after{content:"";position:absolute;}
+		.shadowR::after,.totallyRandom .item::after,#commentList .comment::after{right:0;bottom:-15px;background:url(homepage/images/shadowR.png) no-repeat;width:307px;height:15px;}
+		.shadowL::before,.recentComments .item::before{left:0;bottom:-14px;background:url(homepage/images/shadowL.png) no-repeat;width:305px;height:14px;}
+
+		.totallyRandom .item{margin-bottom:26px;background-color:#fff;position:relative;padding:10px;}
+		.totallyRandom .title{border-bottom:1px solid #e9e8e1;margin-bottom:10px;padding:4px 0 10px;color:#3f3f3f;font-size:16px;}
+		.totallyRandom .title a{vertical-align:middle;}
+		.totallyRandom .title .name{color:#3f3f3f;font-size:14px;text-decoration:none;}
+		.totallyRandom .pic{float:left;margin:0 12px 12px 0;}
+		.totallyRandom .summary{color:#787878;}
+
+		.lastestPhotos{margin-bottom:12px;}
+		.lastestPhotos .pic{float:left;width:120px;height:120px;margin-left:10px;}
+		.lastestPhotos .pic:first-child{margin-left:0;}
+		.lastestPhotos .more{float:right;margin:13px 0 0 0;color:#6d6e76;background:url(homepage/images/photoIcon.png) no-repeat right center;height:16px;padding-right:23px;}
+
+		.recentComments .item{background-image:url(homepage/images/bgB.png);margin-bottom:13px;position:relative;padding:8px;border-radius:2px;}
+		.recentComments .item:nth-child(2n){background-image:url(homepage/images/bgA.png);}
+		.recentComments .item .pic{float:left;margin-right:10px;}
+		.recentComments .item p{line-height:150%;}
+	</style>
+</head>
+<body>
+	<header id="header">
+		<div class="clear layout">
+			<a href="###" id="logo"></a>
+			<nav id="nav">
+				<a href="">home</a>
+				<a href="">blog</a>
+				<a href="">portfolio</a>
+				<a href="">photos</a>
+				<a href="">extras</a>
+				<a href="">contact</a>
+			</nav>
+		</div>
+	</header>
+	<div id="container">
+		<div class="clear layout">
+			<div id="main">
+				<section id="detail">
+					<figure class="header">
+						<img src="homepage/temp/dd.jpg" alt="" title="" />
+						<figcaption><a href="javascript:" class="mark"></a>14 · Party people on the image above!</figcaption>
+					</figure>
+
+					<p class="info">
+					15 Dec, 2011  |  
+					<a href="###">Dance</a> · <a href="###">Party</a> · <a href="###">People</a>  |  
+					<a href="###">2 Comments</a></p>
+
+					<article class="article">
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+					Lorem Ipsum has been the industry's standard dummy text ever since the
+					1500s, when an unknown printer took a galley of type and scrambled it to
+					make a type specimen book. It has survived not only five centuries, but also
+					the leap into electronic typesetting, remaining essentially unchanged. It was
+					popularised in the 1960s with the release of Letraset sheets containing
+					Lorem Ipsum passages, and more recently with desktop publishing software
+					like Aldus PageMaker including versions of Lorem Ipsum.<br>
+					<br>
+					The standard chunk of Lorem Ipsum used since the 1500s is reproduced
+					below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus
+					Bonorum et Malorum" by Cicero are also reproduced in their exact original
+					form, accompanied by English versions from the 1914 translation by H.
+					Rackham.<br>
+
+					<div class="share">
+						<a href="###" class="facebook"></a>
+						<a href="###" class="twitter"></a>
+						Liked it? Share it!
+					</div>
+					</article>
+
+					<ul id="commentList">
+						<li class="clear">
+							<a href="###" title="" class="pic">
+								<img src="homepage/temp/asdf.jpg" alt="" title="" />
+							</a>
+							<div class="comment">
+								Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummytext ever since the 1500s, when an unknown printer took a galleyof type and scrambled it to make a type specimen book. It hassurvived not only five centuries, but also the leap into electronictypesetting, remaining essentially unchanged.
+								<p class="meta">posted on 15 Dec, 2011 <span class="user">by Lucy</span></p>
+							</div>
+						</li>
+						<li class="clear">
+							<a href="###" title="" class="pic">
+								<img src="homepage/temp/asdf.jpg" alt="" title="" />
+							</a>
+							<div class="comment">
+								Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummytext ever since the 1500s, when an unknown printer took a galleyof type and scrambled it to make a type specimen book. It hassurvived not only five centuries, but also the leap into electronictypesetting, remaining essentially unchanged.
+								<p class="meta">posted on 15 Dec, 2011 <span class="user">by Lucy</span></p>
+							</div>
+						</li>
+						<li class="clear">
+							<a href="###" title="" class="pic">
+								<img src="homepage/temp/asdf.jpg" alt="" title="" />
+							</a>
+							<div class="comment">
+								Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummytext ever since the 1500s, when an unknown printer took a galleyof type and scrambled it to make a type specimen book. It hassurvived not only five centuries, but also the leap into electronictypesetting, remaining essentially unchanged.
+								<p class="meta">posted on 15 Dec, 2011 <span class="user">by Lucy</span></p>
+							</div>
+						</li>
+					</ul>
+				</section>
+				<section id="leaveComments">
+					<p>
+					<label for="name">name:</label>
+					<input type="text" placeholder="leah dizon" class="textBox" id="name" />
+					</p>
+					<p>
+					<label for="email">email:</label>
+					<input type="text" placeholder="example@email.com" class="textBox" id="email" />
+					</p>
+					<p>
+					<label for="comment">comment:</label>
+					<textarea class="commentBox" id="comment" placeholder="what the hell do you think who you are?"></textarea>
+					</p>
+				</section>
+			</div>
+			<aside id="side">
+				<div class="totallyRandom">
+					<h3>totally random</h3>
+					<article class="item">
+						<h4 class="title">
+							<a href="javascript:" title="" class="mark"></a>
+							<a href="###" title="" class="name">6. keep trying.</a>
+						</h4>
+						<div class="clear">
+							<a href="###" class="pic"><img src="homepage/temp/a.jpg" /></a>
+							<p class="summary">LoLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsumrem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum</p
+						</div>
+					</article>
+					<article class="item">
+						<h4 class="title">
+							<a href="javascript:" title="" class="mark"></a>
+							<a href="###" title="" class="name">6. keep trying.</a>
+						</h4>
+						<div class="clear">
+							<a href="###" class="pic"><img src="homepage/temp/a.jpg" /></a>
+							<p class="summary">LoLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsumrem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum</p
+						</div>
+					</article>
+					<article class="item">
+						<h4 class="title">
+							<a href="javascript:" title="" class="mark"></a>
+							<a href="###" title="" class="name">6. keep trying.</a>
+						</h4>
+						<div class="clear">
+							<a href="###" class="pic"><img src="homepage/temp/a.jpg" /></a>
+							<p class="summary">LoLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsumrem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum</p
+						</div>
+					</article>
+				</div>
+				<div class="clear lastestPhotos">
+					<h3>lastest photos</h3>
+					<div class="clear">
+						<a href="###" title="" class="pic">
+							<img src="homepage/temp/b.jpg" />
+						</a>
+						<a href="###" title="" class="pic">
+							<img src="homepage/temp/c.jpg" />
+						</a>
+						<a href="###" title="" class="pic">
+							<img src="homepage/temp/d.jpg" />
+						</a>
+					</div>
+					<a href="###" title="" class="more">more photos</a>
+				</div>
+				<div class="recentComments">
+					<h3>recent comment</h3>
+					<article class="item">
+						<a href="###" title="" class="pic"><img src="homepage/temp/q.jpg" /></a>
+						<p class="short">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard...</p>
+					</article>
+					<article class="item">
+						<a href="###" title="" class="pic"><img src="homepage/temp/q.jpg" /></a>
+						<p class="short">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard...</p>
+					</article>
+					<article class="item">
+						<a href="###" title="" class="pic"><img src="homepage/temp/q.jpg" /></a>
+						<p class="short">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard...</p>
+					</article>
+				</div>
+			</aside>
+		</div>
+	</div>
+	<footer id="footer">
+		<div class="layout">
+			<article id="aboutMe">
+				<h3>about me</h3>
+				<div class="clear">
+					<a href="###" class="pic"><img src="homepage/temp/man.jpg" alt="" /></a>
+					<p class="summary">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the1500s, when an unknown printer took a galley of type and scrambled it tomake a type specimen book. </p>
+				</div>
+			</article>
+			<article id="social">
+				<h3>
+				<a href="###" class="rss"></a>
+				<a href="###" class="you2be"></a>
+				<a href="###" class="twitter"></a>
+				<a href="###" class="facebook"></a>
+				<a href="###" class="dribbble"></a>
+				social</h3>
+				<div class="twitterDynamic">
+					<p class="item">
+						<span class="at">@Lorem_Ipsum</span>
+						is simply dummy text of the printing and typesetting industry.
+						<span class="ago">24 minutes ago</span>
+					</p>
+				</div>
+			</article>
+			<p id="copyright">Copyright 2012 Panagiotis Tsamoudakis.com</p>
+		</div>
+	</footer>
+</body>
+</html>
