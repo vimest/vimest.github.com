@@ -8,7 +8,7 @@
 	<meta name="description" content="" />	
 	<title>xyzGallery</title>
 	<style>
-		*{margin:0;padding:0;font:normal 12px georgia;}
+		*{margin:0;padding:0;font:normal 12px georgia;outline:none;}
 		a:link,a:visited{text-decoration:none;color:#3f3f3f;}
 		a:hover{text-decoration:underline;}
 		img{vertical-align:bottom;}
@@ -19,6 +19,9 @@
 		.pic img{border-radius:2px;}
 		.mark{display:inline-block;width:16px;vertical-align:middle;height:16px;margin:0 8px 0 2px;background:url(homepage/images/mark.png) no-repeat;}
 		.mark:hover{background-position:left bottom;}
+		label,.checkBox{vertical-align:middle;}
+		.textBox{padding:0 3px;}
+		.button{cursor:pointer;border:none;}
 
 		/*
 		@media screen and (min-width:1024px){html{background:url(l/l.png) no-repeat right bottom;}}
@@ -64,7 +67,7 @@
 		}
 
 		/*main*/
-		#main{float:left;width:500px;}
+		#main{float:left;width:500px;padding-top:48px;}
 		#leaveComments{padding:15px;background-image:url(homepage/images/bgC.png);position:relative;}
 		#leaveComments::before,#leaveComments::after{content:"";position:absolute;}
 		#leaveComments::before{background:url(homepage/images/leaveCommentPrompt.png) no-repeat;width:114px;right:8px;top:-50px;height:41px;}
@@ -92,10 +95,8 @@
 		#commentList li{margin-top:52px;}
 		#commentList .comment{color:#424242;line-height:160%;float:right;border-radius:2px;padding:10px;background-color:#fff;width:430px;-moz-box-sizing:border-box;box-sizing:border-box;position:relative;}
 		#commentList .comment::before{left:-10px;top:20px;content:"";position:absolute;background:url(homepage/images/commentArrow.png) no-repeat;width:10px;height:10px;}
-		/*<!--#commentList .comment::after{content:"";position:absolute;right:0;bottom:-15px;background:url(homepage/images/shadowR.png) no-repeat;width:307px;height:15px;}-->*/
 		#commentList .comment .meta{color:#cccabd;margin-top:16px;position:absolute;}
 		#commentList .comment .user{color:#827e63;}
-
 
 		/*side*/
 		#side{float:right;background-image:url(homepage/images/bgC.png);width:400px;padding:49px 10px 100px;box-sizing:border-box;-moz-box-sizing:border-box;}
@@ -124,198 +125,270 @@
 		.recentComments .item:nth-child(2n){background-image:url(homepage/images/bgA.png);}
 		.recentComments .item .pic{float:left;margin-right:10px;}
 		.recentComments .item p{line-height:150%;}
+
+		/*animate*/
+		#nav a:nth-child(1){ -webkit-animation:sayHi 1s 1s;}
+		#nav a:nth-child(2){ -webkit-animation:sayHi 1s 1.1s;}
+		#nav a:nth-child(3){ -webkit-animation:sayHi 1s 1.2s;}
+		#nav a:nth-child(4){ -webkit-animation:sayHi 1s 1.3s;}
+		#nav a:nth-child(5){ -webkit-animation:sayHi 1s 1.4s;}
+		#nav a:nth-child(6){ -webkit-animation:sayHi 1s 1.5s;}
+		@-webkit-keyframes sayHi{from{opacity:0;} to{opacity:1;}}
+
+		#login700{display:none;}
+
+		#login700{width:700px;height:400px;background:url(login700/login700Bg.jpg) no-repeat;position:absolute;left:50%;top:50%;margin:-200px 0 0 -350px;}
+		#login700 .main{-moz-box-sizing:border-box;box-sizing:border-box;width:392px;height:294px;padding:0 40px;text-align:center;background:url(login700/background.png) no-repeat;margin:-147px auto 0;position:relative;top:50%;}
+		#login700 .textBox,#login700 .button{display:block;}
+		
+		#login700 .textBox{
+			margin-top:8px;
+			border:1px solid #8b7253;height:37px;line-height:37px;border-radius:4px;
+			background-image: -webkit-linear-gradient(top, #f3e6d3, #eaeaea); /* Chrome 10+, Saf5.1+, iOS 5+ */
+			background-image:    -moz-linear-gradient(top, #f3e6d3, #eaeaea); /* FF3.6+ */
+			background-image:     -ms-linear-gradient(top, #f3e6d3, #eaeaea); /* IE10 */
+			background-image:      -o-linear-gradient(top, #f3e6d3, #eaeaea); /* Opera 11.10+ */
+			background-image:         linear-gradient(to bottom, #f3e6d3, #eaeaea);
+			width:100%;position:relative;
+		}
+		#login700 .bingo::after,#login700 .shit::after{
+			content:"";position:absolute;width:50px;height:43px;left:100%;
+			background:url(login700/statusSprite.png) no-repeat left top;top:-2px;
+		}
+		#login700 .shit::after{background-position:left -46px;}
+		#login700 .login{
+			border-radius:10px 30px 30px 10px;float:right;
+			height:45px;width:114px;font-size:14px;
+			line-height:45px;background:url(login700/loginBg.png) repeat-x;
+		}
+		#login700 .options label,#login700 .login,#login700 .main h3{
+			text-shadow:1px 1px 0 rgba(255,255,255,.4);
+			color:#5d4932;font-weight:bold;text-transform:capitalize;
+		}
+		#autoLogIn{display:none;}
+		#login700 .checkBox{display:inline-block;width:49px;height:19px;background:url(login700/radioBg.png) no-repeat;cursor:pointer;}
+		#autoLogIn:checked ~ .checkBox .button{left:24px;}
+		#login700 .checkBox .button{position:relative;left:-1px;background:url(login700/radioBtn.png) no-repeat;width:23px;height:23px;}
+		#login700 h3{text-align:left;font-size:22px;text-indent:5px;height:62px;line-height:90px;}
+		#login700 .options{text-align:left;line-height:44px;height:68px;padding-top:25px;margin-top:35px;}
+		@media (max-width:900px){
+			#homepage{display:none;}
+			#login700{display:none;}
+			html{background:#000 url(l/l.png) no-repeat right bottom;height:100%;}
+		}
+		@media (max-width:700px){
+			html{background:#504b45 none;}
+			#homepage{display:none;}
+			#login700{display:block;}
+		}
 	</style>
 </head>
 <body>
-	<header id="header">
-		<div class="clear layout">
-			<a href="###" id="logo"></a>
-			<nav id="nav">
-				<a href="">home</a>
-				<a href="">blog</a>
-				<a href="">portfolio</a>
-				<a href="">photos</a>
-				<a href="">extras</a>
-				<a href="">contact</a>
-			</nav>
-		</div>
-	</header>
-	<div id="container">
-		<div class="clear layout">
-			<div id="main">
-				<section id="detail">
-					<figure class="header">
-						<img src="homepage/temp/dd.jpg" alt="" title="" />
-						<figcaption><a href="javascript:" class="mark"></a>14 · Party people on the image above!</figcaption>
-					</figure>
-
-					<p class="info">
-					15 Dec, 2011  |  
-					<a href="###">Dance</a> · <a href="###">Party</a> · <a href="###">People</a>  |  
-					<a href="###">2 Comments</a></p>
-
-					<article class="article">
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-					Lorem Ipsum has been the industry's standard dummy text ever since the
-					1500s, when an unknown printer took a galley of type and scrambled it to
-					make a type specimen book. It has survived not only five centuries, but also
-					the leap into electronic typesetting, remaining essentially unchanged. It was
-					popularised in the 1960s with the release of Letraset sheets containing
-					Lorem Ipsum passages, and more recently with desktop publishing software
-					like Aldus PageMaker including versions of Lorem Ipsum.<br>
-					<br>
-					The standard chunk of Lorem Ipsum used since the 1500s is reproduced
-					below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus
-					Bonorum et Malorum" by Cicero are also reproduced in their exact original
-					form, accompanied by English versions from the 1914 translation by H.
-					Rackham.<br>
-
-					<div class="share">
-						<a href="###" class="facebook"></a>
-						<a href="###" class="twitter"></a>
-						Liked it? Share it!
-					</div>
-					</article>
-
-					<ul id="commentList">
-						<li class="clear">
-							<a href="###" title="" class="pic">
-								<img src="homepage/temp/asdf.jpg" alt="" title="" />
-							</a>
-							<div class="comment">
-								Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummytext ever since the 1500s, when an unknown printer took a galleyof type and scrambled it to make a type specimen book. It hassurvived not only five centuries, but also the leap into electronictypesetting, remaining essentially unchanged.
-								<p class="meta">posted on 15 Dec, 2011 <span class="user">by Lucy</span></p>
-							</div>
-						</li>
-						<li class="clear">
-							<a href="###" title="" class="pic">
-								<img src="homepage/temp/asdf.jpg" alt="" title="" />
-							</a>
-							<div class="comment">
-								Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummytext ever since the 1500s, when an unknown printer took a galleyof type and scrambled it to make a type specimen book. It hassurvived not only five centuries, but also the leap into electronictypesetting, remaining essentially unchanged.
-								<p class="meta">posted on 15 Dec, 2011 <span class="user">by Lucy</span></p>
-							</div>
-						</li>
-						<li class="clear">
-							<a href="###" title="" class="pic">
-								<img src="homepage/temp/asdf.jpg" alt="" title="" />
-							</a>
-							<div class="comment">
-								Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummytext ever since the 1500s, when an unknown printer took a galleyof type and scrambled it to make a type specimen book. It hassurvived not only five centuries, but also the leap into electronictypesetting, remaining essentially unchanged.
-								<p class="meta">posted on 15 Dec, 2011 <span class="user">by Lucy</span></p>
-							</div>
-						</li>
-					</ul>
-				</section>
-				<section id="leaveComments">
-					<p>
-					<label for="name">name:</label>
-					<input type="text" placeholder="leah dizon" class="textBox" id="name" />
-					</p>
-					<p>
-					<label for="email">email:</label>
-					<input type="text" placeholder="example@email.com" class="textBox" id="email" />
-					</p>
-					<p>
-					<label for="comment">comment:</label>
-					<textarea class="commentBox" id="comment" placeholder="what the hell do you think who you are?"></textarea>
-					</p>
-				</section>
+	<div id="homepage">
+		<header id="header">
+			<div class="clear layout">
+				<a href="###" id="logo"></a>
+				<nav id="nav">
+					<a href="">home</a>
+					<a href="">blog</a>
+					<a href="">portfolio</a>
+					<a href="">photos</a>
+					<a href="">extras</a>
+					<a href="">contact</a>
+				</nav>
 			</div>
-			<aside id="side">
-				<div class="totallyRandom">
-					<h3>totally random</h3>
-					<article class="item">
-						<h4 class="title">
-							<a href="javascript:" title="" class="mark"></a>
-							<a href="###" title="" class="name">6. keep trying.</a>
-						</h4>
-						<div class="clear">
-							<a href="###" class="pic"><img src="homepage/temp/a.jpg" /></a>
-							<p class="summary">LoLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsumrem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum</p
-						</div>
-					</article>
-					<article class="item">
-						<h4 class="title">
-							<a href="javascript:" title="" class="mark"></a>
-							<a href="###" title="" class="name">6. keep trying.</a>
-						</h4>
-						<div class="clear">
-							<a href="###" class="pic"><img src="homepage/temp/a.jpg" /></a>
-							<p class="summary">LoLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsumrem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum</p
-						</div>
-					</article>
-					<article class="item">
-						<h4 class="title">
-							<a href="javascript:" title="" class="mark"></a>
-							<a href="###" title="" class="name">6. keep trying.</a>
-						</h4>
-						<div class="clear">
-							<a href="###" class="pic"><img src="homepage/temp/a.jpg" /></a>
-							<p class="summary">LoLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsumrem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum</p
-						</div>
-					</article>
+		</header>
+		<div id="container">
+			<div class="clear layout">
+				<div id="main">
+					<section id="detail">
+						<figure class="header">
+							<img src="homepage/temp/dd.jpg" alt="" title="" />
+							<figcaption><a href="javascript:" class="mark"></a>14 · Party people on the image above!</figcaption>
+						</figure>
+
+						<p class="info">
+						15 Dec, 2011  |  
+						<a href="###">Dance</a> · <a href="###">Party</a> · <a href="###">People</a>  |  
+						<a href="###">2 Comments</a></p>
+
+						<article class="article">
+							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+							Lorem Ipsum has been the industry's standard dummy text ever since the
+							1500s, when an unknown printer took a galley of type and scrambled it to
+							make a type specimen book. It has survived not only five centuries, but also
+							the leap into electronic typesetting, remaining essentially unchanged. It was
+							popularised in the 1960s with the release of Letraset sheets containing
+							Lorem Ipsum passages, and more recently with desktop publishing software
+							like Aldus PageMaker including versions of Lorem Ipsum.<br>
+							<br>
+							The standard chunk of Lorem Ipsum used since the 1500s is reproduced
+							below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus
+							Bonorum et Malorum" by Cicero are also reproduced in their exact original
+							form, accompanied by English versions from the 1914 translation by H.
+							Rackham.<br>
+
+							<div class="share">
+								<a href="###" class="facebook"></a>
+								<a href="###" class="twitter"></a>
+								Liked it? Share it!
+							</div>
+						</article>
+
+						<ul id="commentList">
+							<li class="clear">
+							<a href="###" title="" class="pic">
+								<img src="homepage/temp/asdf.jpg" alt="" title="" />
+							</a>
+							<div class="comment">
+								Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummytext ever since the 1500s, when an unknown printer took a galleyof type and scrambled it to make a type specimen book. It hassurvived not only five centuries, but also the leap into electronictypesetting, remaining essentially unchanged.
+								<p class="meta">posted on 15 Dec, 2011 <span class="user">by Lucy</span></p>
+							</div>
+							</li>
+							<li class="clear">
+							<a href="###" title="" class="pic">
+								<img src="homepage/temp/asdf.jpg" alt="" title="" />
+							</a>
+							<div class="comment">
+								Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummytext ever since the 1500s, when an unknown printer took a galleyof type and scrambled it to make a type specimen book. It hassurvived not only five centuries, but also the leap into electronictypesetting, remaining essentially unchanged.
+								<p class="meta">posted on 15 Dec, 2011 <span class="user">by Lucy</span></p>
+							</div>
+							</li>
+							<li class="clear">
+							<a href="###" title="" class="pic">
+								<img src="homepage/temp/asdf.jpg" alt="" title="" />
+							</a>
+							<div class="comment">
+								Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummytext ever since the 1500s, when an unknown printer took a galleyof type and scrambled it to make a type specimen book. It hassurvived not only five centuries, but also the leap into electronictypesetting, remaining essentially unchanged.
+								<p class="meta">posted on 15 Dec, 2011 <span class="user">by Lucy</span></p>
+							</div>
+							</li>
+						</ul>
+					</section>
+					<section id="leaveComments">
+						<p>
+						<label for="name">name:</label>
+						<input type="text" placeholder="leah dizon" class="textBox" id="name" />
+						</p>
+						<p>
+						<label for="email">email:</label>
+						<input type="text" placeholder="example@email.com" class="textBox" id="email" />
+						</p>
+						<p>
+						<label for="comment">comment:</label>
+						<textarea class="commentBox" id="comment" placeholder="what the hell do you think who you are?"></textarea>
+						</p>
+					</section>
 				</div>
-				<div class="clear lastestPhotos">
-					<h3>lastest photos</h3>
-					<div class="clear">
-						<a href="###" title="" class="pic">
-							<img src="homepage/temp/b.jpg" />
-						</a>
-						<a href="###" title="" class="pic">
-							<img src="homepage/temp/c.jpg" />
-						</a>
-						<a href="###" title="" class="pic">
-							<img src="homepage/temp/d.jpg" />
-						</a>
+				<aside id="side">
+					<div class="totallyRandom">
+						<h3>totally random</h3>
+						<article class="item">
+							<h4 class="title">
+								<a href="javascript:" title="" class="mark"></a>
+								<a href="###" title="" class="name">6. keep trying.</a>
+							</h4>
+							<div class="clear">
+								<a href="###" class="pic"><img src="homepage/temp/a.jpg" /></a>
+								<p class="summary">LoLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsumrem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum</p
+							</div>
+						</article>
+						<article class="item">
+							<h4 class="title">
+								<a href="javascript:" title="" class="mark"></a>
+								<a href="###" title="" class="name">6. keep trying.</a>
+							</h4>
+							<div class="clear">
+								<a href="###" class="pic"><img src="homepage/temp/a.jpg" /></a>
+								<p class="summary">LoLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsumrem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum</p
+							</div>
+						</article>
+						<article class="item">
+							<h4 class="title">
+								<a href="javascript:" title="" class="mark"></a>
+								<a href="###" title="" class="name">6. keep trying.</a>
+							</h4>
+							<div class="clear">
+								<a href="###" class="pic"><img src="homepage/temp/a.jpg" /></a>
+								<p class="summary">LoLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsumrem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum</p
+							</div>
+						</article>
 					</div>
-					<a href="###" title="" class="more">more photos</a>
-				</div>
-				<div class="recentComments">
-					<h3>recent comment</h3>
-					<article class="item">
-						<a href="###" title="" class="pic"><img src="homepage/temp/q.jpg" /></a>
-						<p class="short">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard...</p>
-					</article>
-					<article class="item">
-						<a href="###" title="" class="pic"><img src="homepage/temp/q.jpg" /></a>
-						<p class="short">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard...</p>
-					</article>
-					<article class="item">
-						<a href="###" title="" class="pic"><img src="homepage/temp/q.jpg" /></a>
-						<p class="short">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard...</p>
-					</article>
-				</div>
-			</aside>
+					<div class="clear lastestPhotos">
+						<h3>lastest photos</h3>
+						<div class="clear">
+							<a href="###" title="" class="pic">
+								<img src="homepage/temp/b.jpg" />
+							</a>
+							<a href="###" title="" class="pic">
+								<img src="homepage/temp/c.jpg" />
+							</a>
+							<a href="###" title="" class="pic">
+								<img src="homepage/temp/d.jpg" />
+							</a>
+						</div>
+						<a href="###" title="" class="more">more photos</a>
+					</div>
+					<div class="recentComments">
+						<h3>recent comment</h3>
+						<article class="item">
+							<a href="###" title="" class="pic"><img src="homepage/temp/q.jpg" /></a>
+							<p class="short">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard...</p>
+						</article>
+						<article class="item">
+							<a href="###" title="" class="pic"><img src="homepage/temp/q.jpg" /></a>
+							<p class="short">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard...</p>
+						</article>
+						<article class="item">
+							<a href="###" title="" class="pic"><img src="homepage/temp/q.jpg" /></a>
+							<p class="short">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard...</p>
+						</article>
+					</div>
+				</aside>
+			</div>
 		</div>
-	</div>
-	<footer id="footer">
-		<div class="layout">
-			<article id="aboutMe">
-				<h3>about me</h3>
-				<div class="clear">
-					<a href="###" class="pic"><img src="homepage/temp/man.jpg" alt="" /></a>
-					<p class="summary">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the1500s, when an unknown printer took a galley of type and scrambled it tomake a type specimen book. </p>
-				</div>
-			</article>
-			<article id="social">
-				<h3>
-				<a href="###" class="rss"></a>
-				<a href="###" class="you2be"></a>
-				<a href="###" class="twitter"></a>
-				<a href="###" class="facebook"></a>
-				<a href="###" class="dribbble"></a>
-				social</h3>
-				<div class="twitterDynamic">
-					<p class="item">
+		<footer id="footer">
+			<div class="layout">
+				<article id="aboutMe">
+					<h3>about me</h3>
+					<div class="clear">
+						<a href="###" class="pic"><img src="homepage/temp/man.jpg" alt="" /></a>
+						<p class="summary">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the1500s, when an unknown printer took a galley of type and scrambled it tomake a type specimen book. </p>
+					</div>
+				</article>
+				<article id="social">
+					<h3>
+						<a href="###" class="rss"></a>
+						<a href="###" class="you2be"></a>
+						<a href="###" class="twitter"></a>
+						<a href="###" class="facebook"></a>
+						<a href="###" class="dribbble"></a>
+						social</h3>
+					<div class="twitterDynamic">
+						<p class="item">
 						<span class="at">@Lorem_Ipsum</span>
 						is simply dummy text of the printing and typesetting industry.
 						<span class="ago">24 minutes ago</span>
-					</p>
-				</div>
-			</article>
-			<p id="copyright">Copyright 2012 Panagiotis Tsamoudakis.com</p>
+						</p>
+					</div>
+				</article>
+				<p id="copyright">Copyright 2012 Panagiotis Tsamoudakis.com</p>
+			</div>
+		</footer>
+	</div>
+
+	<section id="login700">
+		<div class="main">
+			<h3>application access</h3>
+			<input type="text" class="textBox bingo" placeholder="type you name." />
+			<input type="text" class="textBox shit" placeholder="type you sister." />
+			<div class="options">
+				<input type="checkbox" id="autoLogIn" />
+				<label for="autoLogIn" class="checkBox"><span class="button"></span></label>
+				<label for="autoLogIn">Auto Log In</label>
+				<button class="button login">log in</button>
+			</div>
 		</div>
-	</footer>
+	</section>
 </body>
 </html>
