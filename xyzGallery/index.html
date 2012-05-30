@@ -10,7 +10,7 @@
 	<style>
 		*{margin:0;padding:0;font:normal 12px georgia;outline:none;}
 		a:link,a:visited{text-decoration:none;color:#3f3f3f;}
-		a:hover{text-decoration:underline;}
+		a:hover,a:active{text-decoration:underline;}
 		img{vertical-align:bottom;}
 		p{line-height:160%;}
 		ul{list-style:none;}
@@ -112,7 +112,7 @@
 		.totallyRandom .item{margin-bottom:26px;background-color:#fff;position:relative;padding:10px;}
 		.totallyRandom .title{border-bottom:1px solid #e9e8e1;margin-bottom:10px;padding:4px 0 10px;color:#3f3f3f;font-size:16px;}
 		.totallyRandom .title a{vertical-align:middle;}
-		.totallyRandom .title .name{color:#3f3f3f;font-size:14px;text-decoration:none;}
+		.totallyRandom .title .name{text-shadow:1px 1px 1px #777;color:#3f3f3f;font-size:14px;}
 		.totallyRandom .pic{float:left;margin:0 12px 12px 0;}
 		.totallyRandom .summary{color:#787878;}
 
@@ -127,13 +127,14 @@
 		.recentComments .item p{line-height:150%;}
 
 		/*animate*/
-		#nav a:nth-child(1){ -webkit-animation:sayHi 1s 1s;}
-		#nav a:nth-child(2){ -webkit-animation:sayHi 1s 1.1s;}
-		#nav a:nth-child(3){ -webkit-animation:sayHi 1s 1.2s;}
-		#nav a:nth-child(4){ -webkit-animation:sayHi 1s 1.3s;}
-		#nav a:nth-child(5){ -webkit-animation:sayHi 1s 1.4s;}
-		#nav a:nth-child(6){ -webkit-animation:sayHi 1s 1.5s;}
+		#nav a:nth-child(1){-webkit-animation:sayHi 1s 1s;-moz-animation:sayHi 1s 1s;}
+		#nav a:nth-child(2){-webkit-animation:sayHi 1s 1.1s;-moz-animation:sayHi 1s 1.1s;}
+		#nav a:nth-child(3){-webkit-animation:sayHi 1s 1.2s;-moz-animation:sayHi 1s 1.2s;}
+		#nav a:nth-child(4){-webkit-animation:sayHi 1s 1.3s;-moz-animation:sayHi 1s 1.3s;}
+		#nav a:nth-child(5){-webkit-animation:sayHi 1s 1.4s;-moz-animation:sayHi 1s 1.4s;}
+		#nav a:nth-child(6){-webkit-animation:sayHi 1s 1.5s;-moz-animation:sayHi 1s 1.5s;}
 		@-webkit-keyframes sayHi{from{opacity:0;} to{opacity:1;}}
+		@-moz-keyframes sayHi{from{opacity:0;} to{opacity:1;}}
 
 		#login700{display:none;}
 
@@ -174,7 +175,10 @@
 		@media (max-width:900px){
 			#homepage{display:none;}
 			#login700{display:none;}
-			html{background:#000 url(l/l.png) no-repeat right bottom;height:100%;}
+			html{
+				background:url(l/fuck.gif) no-repeat 74% 60%,#000 url(l/l.png) no-repeat right bottom;
+				height:100%;
+			}
 		}
 		@media (max-width:700px){
 			html{background:#504b45 none;}
@@ -366,7 +370,7 @@
 						social</h3>
 					<div class="twitterDynamic">
 						<p class="item">
-						<span class="at">@Lorem_Ipsum</span>
+						<a class="at" href="###">@Lorem_Ipsum</a>
 						is simply dummy text of the printing and typesetting industry.
 						<span class="ago">24 minutes ago</span>
 						</p>
