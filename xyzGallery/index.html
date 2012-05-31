@@ -7,6 +7,7 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />	
 	<title>xyzGallery</title>
+	<link href='http://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope' rel='stylesheet' type='text/css'>
 	<style>
 		*{margin:0;padding:0;font:normal 12px georgia;outline:none;}
 		a:link,a:visited{text-decoration:none;color:#3f3f3f;}
@@ -137,6 +138,7 @@
 		@-moz-keyframes sayHi{from{opacity:0;} to{opacity:1;}}
 
 		#login700{display:none;}
+		#letter900{display:none;}
 
 		#login700{width:700px;height:400px;background:url(login700/login700Bg.jpg) no-repeat;position:absolute;left:50%;top:50%;margin:-200px 0 0 -350px;}
 		#login700 .main{-moz-box-sizing:border-box;box-sizing:border-box;width:392px;height:294px;padding:0 40px;text-align:center;background:url(login700/background.png) no-repeat;margin:-147px auto 0;position:relative;top:50%;}
@@ -172,19 +174,37 @@
 		#login700 .checkBox .button{position:relative;left:-1px;background:url(login700/radioBtn.png) no-repeat;width:23px;height:23px;}
 		#login700 h3{text-align:left;font-size:22px;text-indent:5px;height:62px;line-height:90px;}
 		#login700 .options{text-align:left;line-height:44px;height:68px;padding-top:25px;margin-top:35px;}
+		#letter900{width:900px;height:900px;background:url(letter900/letter.jpg) no-repeat;}
+		#letter900 .cnt{width:416px;height:647px;position:relative;top:113px;left:213px;
+			transform:rotate(1deg);-moz-transform:rotate(1deg);
+			box-sizing:border-box;-moz-box-sizing:border-box;
+			padding:38px 0 0 50px;
+			font:normal 20px/40px 'Annie Use Your Telescope';
+		}
 		@media (max-width:900px){
+			html{background:#000 none;}
+			#homepage{display:none;}
+			#letter900{display:block;}
+			::selection{background:rgba(0,0,0,.6);color:#fff;}
+			::-moz-selection{background:rgba(0,0,0,.6);color:#fff;}
+		}
+		@media (max-width:700px){
+			html{background:#504b45 none;}
+			#homepage{display:none;}
+			#letter900{display:none;}
+			#login700{display:block;}
+		}
+		@media (max-width:500px){
 			#homepage{display:none;}
 			#login700{display:none;}
+			#letter900{display:none;}
 			html{
 				background:url(l/fuck.gif) no-repeat 74% 60%,#000 url(l/l.png) no-repeat right bottom;
 				height:100%;
 			}
 		}
-		@media (max-width:700px){
-			html{background:#504b45 none;}
-			#homepage{display:none;}
-			#login700{display:block;}
-		}
+
+
 	</style>
 </head>
 <body>
@@ -380,7 +400,6 @@
 			</div>
 		</footer>
 	</div>
-
 	<section id="login700">
 		<div class="main">
 			<h3>application access</h3>
@@ -394,5 +413,23 @@
 			</div>
 		</div>
 	</section>
+	<div id="letter900">
+		<article class="cnt">
+luda, when i was 13 i had my first love?<br>
+there was nobody that compared to my baby?<br>
+and nobody came between us?<br>
+no-one could ever come above?<br>
+she had me going crazy, oh i was star-struck?<br>
+she woke me up daily, don't need no starbucks?<br>
+she made my heart pound?<br>
+i skip a beat when i see her in the street and?<br>
+at school on the playground?<br>
+but i really wanna see her on the weekend?<br>
+she knows she got me dazing?<br>
+coz she was so amazing?<br>
+and now my heart is breaking?<br>
+but i just keep on saying?
+		</article>
+	</div>
 </body>
 </html>
