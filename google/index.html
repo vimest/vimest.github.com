@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Vimest">
+	<meta name="generator" content="GVIM 7.3">
+	<meta name="keywords" content="">
+	<meta name="description" content="">	
+	<title>google</title>
+	<script src="list.js"></script>
+	<style>
+		*{margin:0;padding:0;color:#f1f1f1;}
+		html{background-color:#222;padding:2%;min-width:900px;}
+		#list{list-style:none;}
+		#list li{
+			background-color:#111;margin:0 .5% .5% 0;
+			height:50px;line-height:50px;border-radius:3px;
+			-webkit-transition:background-color .5s ease-out;
+			-moz-transition:background-color .5s ease-out;
+			-o-transition:background-color .5s ease-out;
+			transition:background-color .5s ease-out;
+			float:left;width:32%;text-indent:1%;font-family:georgia;cursor:pointer;
+		}
+		#list li:hover{
+			background-color:rgba(62,131,185,.6);
+		}
+	</style>
+</head>
+<body>
+	<ul id="list"></ul>
+	<script>
+		var list = document.getElementById('list');
+		for(var i =0;i<a.length;i++){
+			var str = '';
+			var li = document.createElement('li');
+			for(var j=0;j<a[i].length;j++){
+				str += String.fromCharCode(a[i][j] ^ 30303);
+			}
+			li.innerHTML = str;
+			list.appendChild(li);
+		}
+	</script>
+</body>
+</html>
