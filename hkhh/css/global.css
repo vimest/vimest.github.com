@@ -1,3 +1,4 @@
+*{outline:none;}
 html{background:#1a1a1a url(../images/background.jpg) no-repeat center top;}
 body{padding:50px 0 20px;font:normal 13px \5fae\8f6f\96c5\9ed1;}
 a:link,a:visited{
@@ -17,7 +18,7 @@ a:hover,a:active{text-decoration:underline;color:#006ab6;}
 #nav a::after{background:url(../images/navLine.gif) no-repeat center center;content:"";width:2px;top:0;z-index:1;left:100%;position:absolute;height:44px;}
 #nav a:hover{text-decoration:none;background:url(../images/navHover.gif) no-repeat center top;}
 
-#gallery{height:280px;}
+#gallery{height:280px;background-color:#ddd;overflow:hidden;}
 
 #case{background:#fff url(../images/caseBg.jpg) repeat-x left bottom;color:#333;padding:10px;width:939px;}
 #case .title{font-size:16px;margin-bottom:8px;}

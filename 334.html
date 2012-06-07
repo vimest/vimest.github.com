@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Vimest" />
+	<meta name="generator" content="GVIM 7.3" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />	
+	<title>HTML - MonitorThis</title>
+	<style>
+		a{float:left;}
+	</style>
+</head>
+<body>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+		for(var i=1;i<335;i++){
+			var oA = document.createElement('a')
+			oA.innerHTML = i;
+			oA.href= 'http://www.google.co.jp/landing/motto/tabplay/'+i+'.jpg';
+			oA.target = '_blank';
+			document.body.appendChild(oA);
+		}
+	</script>
+</body>
+</html>
