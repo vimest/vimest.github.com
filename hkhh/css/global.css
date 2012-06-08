@@ -47,6 +47,7 @@ a:hover,a:active{text-decoration:underline;color:#006ab6;}
 	text-decoration:underline;color:#006ab6;
 }
 #footer a[rel=index]:hover{color:#000;}
+#header,#footer{behavior:url(../css/PIE.htc);}
 
 .mbox,.sbox{margin-bottom:10px;}
 .mbox .cnt,.sbox .cnt{padding:10px;}
@@ -68,10 +69,7 @@ a:hover,a:active{text-decoration:underline;color:#006ab6;}
 }
 .sbox ol li:hover{text-indent:2em;}
 
-
 .mbox .title{
 	height:36px;line-height:32px;text-indent:46px;font-size:14px;color:#191919;
-	background:url(../images/mboxTitleBg.png) no-repeat,url(../images/mboxTitleBg.png) repeat-x left bottom;
-	-pie-background:url(../images/mboxTitleBg.png) no-repeat,url(../images/mboxTitleBg.png) repeat-x left bottom;
+	background:url(../images/mboxTitleBg.png) no-repeat;
 }
-#header,#footer,.mbox .title{behavior:url(../css/PIE.htc);}
