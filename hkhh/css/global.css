@@ -13,7 +13,7 @@ a:hover,a:active{text-decoration:underline;color:#006ab6;}
 
 
 #header{height:80;background:url(../images/headerBg.gif) no-repeat;border-radius:10px 10px 0 0;}
-#logo{width:82px;height:68px;background:url(../images/logo.png) no-repeat;display:block;text-indent:-9999px;position:relative;top:6px;left:12px;}
+#logo{width:82px;height:68px;background:url(../images/logo.png) no-repeat;display:block;text-indent:-9999px;position:relative;top:1px;left:12px;}
 #nav{height:44px;line-height:44px;background:url(../images/navBg.gif) repeat-x;}
 #nav a{float:left;width:100px;text-align:center;position:relative;margin-right:1px;}
 #nav a::after{background:url(../images/navLine.gif) no-repeat center center;content:"";width:2px;top:0;z-index:1;left:100%;position:absolute;height:44px;}
@@ -69,6 +69,7 @@ a:hover,a:active{text-decoration:underline;color:#006ab6;}
 	transition:text-indent .2s ease-out;
 }
 .sbox ol li:hover{text-indent:2em;}
+.sbox .more{text-decoration:none;text-align:right;margin-right:10px;border-bottom:none;list-style:none;}
 
 .mbox .title{
 	height:36px;line-height:32px;text-indent:46px;font-size:14px;color:#191919;
