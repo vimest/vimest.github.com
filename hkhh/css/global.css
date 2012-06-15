@@ -17,7 +17,7 @@ a:hover,a:active{text-decoration:underline;color:#006ab6;}
 #nav{height:44px;line-height:44px;background:url(../images/navBg.gif) repeat-x;}
 #nav a{float:left;width:100px;text-align:center;position:relative;margin-right:1px;}
 #nav a::after{background:url(../images/navLine.gif) no-repeat center center;content:"";width:2px;top:0;z-index:1;left:100%;position:absolute;height:44px;}
-#nav a:hover,#nav .current{text-decoration:none;background:url(../images/navHover.gif) no-repeat center top;}
+#nav a:hover,#nav .current{text-decoration:none;color:#006ab6;background:url(../images/navHover.gif) no-repeat center top;}
 
 #gallery{height:280px;background-color:#ddd;overflow:hidden;}
 
