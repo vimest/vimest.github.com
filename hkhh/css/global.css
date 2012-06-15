@@ -13,10 +13,11 @@ a:hover,a:active{text-decoration:underline;color:#006ab6;}
 
 
 #header{height:80px;background:url(../images/headerBg.gif) no-repeat;border-radius:10px 10px 0 0;}
+#logo{width:82px;height:68px;background:url(../images/logo.png) no-repeat;display:block;text-indent:-9999px;position:relative;top:6px;left:12px;}
 #nav{height:44px;line-height:44px;background:url(../images/navBg.gif) repeat-x;}
 #nav a{float:left;width:100px;text-align:center;position:relative;margin-right:1px;}
 #nav a::after{background:url(../images/navLine.gif) no-repeat center center;content:"";width:2px;top:0;z-index:1;left:100%;position:absolute;height:44px;}
-#nav a:hover{text-decoration:none;background:url(../images/navHover.gif) no-repeat center top;}
+#nav a:hover,#nav .current{text-decoration:none;background:url(../images/navHover.gif) no-repeat center top;}
 
 #gallery{height:280px;background-color:#ddd;overflow:hidden;}
 
@@ -36,8 +37,8 @@ a:hover,a:active{text-decoration:underline;color:#006ab6;}
 
 #container,#friendLinks{background-color:#fff;}
 #container{padding:4px;width:951px;}
-#main{float:left;width:675px;}
-#side{float:right;width:263px;}
+#main{float:right;width:675px;}
+#side{float:left;width:263px;}
 
 #friendLinks .cnt{background-color:#f7f7f7;padding:20px;}
 #friendLinks a{margin-right:20px;float:left;}
