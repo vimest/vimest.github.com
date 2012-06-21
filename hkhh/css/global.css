@@ -9,7 +9,7 @@ a:link,a:visited{
 	transition:all .2s ease-out;
 }
 a:hover,a:active{text-decoration:underline;color:#006ab6;}
-#header,#nav,#gallery,#container,#case,#friendLinks,#footer,.layout{width:959px;margin:0 auto;}
+#header,#nav,#gallery,#container,#friendLinks,#footer,.layout{width:959px;margin:0 auto;}
 
 
 #header{height:80;background:url(../images/headerBg.gif) no-repeat;border-radius:10px 10px 0 0;}
@@ -21,9 +21,9 @@ a:hover,a:active{text-decoration:underline;color:#006ab6;}
 
 #gallery{height:280px;background-color:#ddd;overflow:hidden;}
 
-#case{background:#fff url(../images/caseBg.jpg) repeat-x left bottom;color:#333;padding:10px;width:939px;}
+#case{background:#fff url(../images/caseBg.jpg) repeat-x left bottom;color:#333;padding:10px;}
 #case .title{font-size:16px;margin-bottom:8px;}
-#case figure{float:left;margin-right:33px;position:relative;left:15px;}
+#case figure{float:left;margin:0 50px 30px 0;position:relative;left:15px;}
 #case .pic{
 	opacity:.8;
 	-moz-transition:opacity .2s ease-out;
