@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>~/Desktop/xyzAjax.js.html</title>
+<title>C:/wamp/www/xyzAjax.js.html</title>
 <meta name="Generator" content="Vim/7.3">
 <meta name="plugin-version" content="vim7.3_v6">
 <meta name="syntax" content="javascript">
@@ -10,8 +10,8 @@
 <style type="text/css">
 <!--
 *{margin:0;padding:0;}
-pre { font-family: georgia,monaco,arial;line-height:24px; color: #ffffff; background-color: #050505; }
-body { font-family: georgia,monaco,arial;padding:10px; color: #ffffff; background-color: #050505; }
+pre { font-family: mgeorgia,tahoma,arial;line-height:30px; color: #ffffff; background-color: #050505; }
+body { font-family: georgia,tahoma,arial; color: #ffffff;padding: 10px; background-color: #050505; }
 .lnr { color: #928c75; }
 .Special { color: #9999aa; font-weight: bold; }
 .Boolean { color: #ff6050; font-weight: bold; }
@@ -27,51 +27,41 @@ body { font-family: georgia,monaco,arial;padding:10px; color: #ffffff; backgroun
 <pre>
 <span class="lnr"> 1 </span><span class="Identifier">var</span> xyzAjax <span class="Statement">=</span> <span class="Identifier">{</span>
 <span class="lnr"> 2 </span>    xhr: <span class="Constant">window</span>.<span class="Title">XMLHttpRequest</span> ? <span class="Statement">new</span> <span class="Title">XMLHttpRequest</span><span class="Statement">()</span> : <span class="Statement">new</span> <span class="Constant">ActiveXObject</span><span class="Statement">(</span><span class="Constant">'Microsoft.XMLHTTP'</span><span class="Statement">)</span><span class="Statement">,</span>
-<span class="lnr"> 3 </span>    get: <span class="Identifier">function</span><span class="Title">(sUrl, oParam, callback)</span> <span class="Identifier">{</span>
-<span class="lnr"> 4 </span>        <span class="Identifier">var</span> that <span class="Statement">=</span> <span class="Identifier">this</span><span class="Statement">;</span>
-<span class="lnr"> 5 </span>        <span class="Statement">if</span> <span class="Statement">(</span>oParam <span class="Statement">!=</span> <span class="Type">null</span><span class="Statement">)</span> <span class="Identifier">{</span>
-<span class="lnr"> 6 </span>            <span class="Identifier">var</span> sUrl <span class="Statement">=</span> sUrl + <span class="Constant">'?'</span> + that.paramFormat<span class="Statement">(</span>oParam<span class="Statement">)</span><span class="Statement">;</span>
-<span class="lnr"> 7 </span>        <span class="Identifier">}</span><span class="Statement">;</span>
-<span class="lnr"> 8 </span>        <span class="Identifier">this</span>.xhr.<span class="Statement">onreadystatechange</span> <span class="Statement">=</span> <span class="Identifier">function</span><span class="Title">()</span> <span class="Identifier">{</span>
-<span class="lnr"> 9 </span>            <span class="Statement">if</span> <span class="Statement">(</span>that.xhr.<span class="Type">readyState</span> <span class="Statement">===</span> <span class="Constant">4</span> <span class="Boolean">&amp;&amp;</span> that.xhr.<span class="Statement">status</span> <span class="Statement">===</span> <span class="Constant">200</span><span class="Statement">)</span> <span class="Identifier">{</span>
-<span class="lnr">10 </span>                callback<span class="Statement">(</span>that.xhr.<span class="Type">responseText</span><span class="Statement">)</span><span class="Statement">;</span>
-<span class="lnr">11 </span>            <span class="Identifier">}</span>
-<span class="lnr">12 </span>        <span class="Identifier">}</span>
-<span class="lnr">13 </span>        <span class="Identifier">this</span>.xhr.<span class="Statement">open</span><span class="Statement">(</span><span class="Constant">'GET'</span>, sUrl, <span class="Boolean">true</span><span class="Statement">)</span><span class="Statement">;</span>
-<span class="lnr">14 </span>        <span class="Identifier">this</span>.xhr.<span class="Statement">send</span><span class="Statement">(</span><span class="Type">null</span><span class="Statement">)</span><span class="Statement">;</span>
-<span class="lnr">15 </span>    <span class="Identifier">}</span><span class="Statement">,</span>
-<span class="lnr">16 </span>    post: <span class="Identifier">function</span><span class="Title">(sUrl, oParam, callback)</span> <span class="Identifier">{</span>
-<span class="lnr">17 </span>        <span class="Identifier">var</span> that <span class="Statement">=</span> <span class="Identifier">this</span><span class="Statement">;</span>
-<span class="lnr">18 </span>        <span class="Statement">if</span> <span class="Statement">(</span>oParam <span class="Statement">!=</span> <span class="Type">null</span><span class="Statement">)</span> <span class="Identifier">{</span>
-<span class="lnr">19 </span>            <span class="Identifier">var</span> oParam <span class="Statement">=</span> that.paramFormat<span class="Statement">(</span>oParam<span class="Statement">)</span><span class="Statement">;</span>
-<span class="lnr">20 </span>        <span class="Identifier">}</span><span class="Statement">;</span>
-<span class="lnr">21 </span>        <span class="Identifier">this</span>.xhr.<span class="Statement">onreadystatechange</span> <span class="Statement">=</span> <span class="Identifier">function</span><span class="Title">()</span> <span class="Identifier">{</span>
-<span class="lnr">22 </span>            <span class="Statement">if</span> <span class="Statement">(</span>that.xhr.<span class="Type">readyState</span> <span class="Statement">===</span> <span class="Constant">4</span> <span class="Boolean">&amp;&amp;</span> that.xhr.<span class="Statement">status</span> <span class="Statement">===</span> <span class="Constant">200</span><span class="Statement">)</span> <span class="Identifier">{</span>
-<span class="lnr">23 </span>                callback<span class="Statement">(</span>that.xhr.<span class="Type">responseText</span><span class="Statement">)</span><span class="Statement">;</span>
-<span class="lnr">24 </span>            <span class="Identifier">}</span>
-<span class="lnr">25 </span>        <span class="Identifier">}</span><span class="Statement">;</span>
-<span class="lnr">26 </span>        <span class="Identifier">this</span>.xhr.<span class="Statement">open</span><span class="Statement">(</span><span class="Constant">'POST'</span>, sUrl, <span class="Boolean">true</span><span class="Statement">)</span><span class="Statement">;</span>
-<span class="lnr">27 </span>        <span class="Identifier">this</span>.xhr.<span class="Statement">setRequestHeader</span><span class="Statement">(</span><span class="Constant">'Content-Type'</span>, <span class="Constant">'application/x-www-form-urlencoded'</span><span class="Statement">)</span><span class="Statement">;</span>
-<span class="lnr">28 </span>        <span class="Identifier">this</span>.xhr.<span class="Statement">send</span><span class="Statement">(</span>oParam<span class="Statement">)</span><span class="Statement">;</span>
+<span class="lnr"> 3 </span>    request:<span class="Identifier">function</span><span class="Title">(sType,sUrl,oParam,callback)</span><span class="Identifier">{</span>
+<span class="lnr"> 4 </span>        <span class="Identifier">var</span> that <span class="Statement">=</span> <span class="Identifier">this</span>,sType <span class="Statement">=</span> sType.toUpperCase<span class="Statement">()</span><span class="Statement">,</span>
+<span class="lnr"> 5 </span>        oParam <span class="Statement">=</span> oParam <span class="Statement">!=</span> <span class="Type">null</span> ? that.paramFormat<span class="Statement">(</span>oParam<span class="Statement">)</span> : <span class="Constant">''</span><span class="Statement">;</span>
+<span class="lnr"> 6 </span>        <span class="Identifier">this</span>.xhr.<span class="Statement">onreadystatechange</span> <span class="Statement">=</span> <span class="Identifier">function</span><span class="Title">()</span> <span class="Identifier">{</span>
+<span class="lnr"> 7 </span>            <span class="Statement">if</span> <span class="Statement">(</span>that.xhr.<span class="Type">readyState</span> <span class="Statement">===</span> <span class="Constant">4</span> <span class="Boolean">&amp;&amp;</span> that.xhr.<span class="Statement">status</span> <span class="Statement">===</span> <span class="Constant">200</span><span class="Statement">)</span> <span class="Identifier">{</span>
+<span class="lnr"> 8 </span>                callback<span class="Statement">(</span>that.xhr.<span class="Type">responseText</span><span class="Statement">)</span><span class="Statement">;</span>
+<span class="lnr"> 9 </span>            <span class="Identifier">}</span><span class="Statement">;</span>
+<span class="lnr">10 </span>        <span class="Identifier">}</span><span class="Statement">;</span>
+<span class="lnr">11 </span>        <span class="Statement">if</span><span class="Statement">(</span>sType <span class="Statement">===</span> <span class="Constant">'GET'</span><span class="Statement">)</span><span class="Identifier">{</span>
+<span class="lnr">12 </span>            <span class="Identifier">this</span>.xhr.<span class="Statement">open</span><span class="Statement">(</span><span class="Constant">'GET'</span>, sUrl+<span class="Constant">'?'</span>+oParam+<span class="Constant">'r='</span>+<span class="Special">Math</span>.random<span class="Statement">()</span>, <span class="Boolean">true</span><span class="Statement">)</span><span class="Statement">;</span>
+<span class="lnr">13 </span>            <span class="Identifier">this</span>.xhr.<span class="Statement">send</span><span class="Statement">(</span><span class="Type">null</span><span class="Statement">)</span><span class="Statement">;</span>
+<span class="lnr">14 </span>        <span class="Identifier">}</span><span class="Statement">else</span> <span class="Statement">if</span><span class="Statement">(</span>sType <span class="Statement">===</span> <span class="Constant">'POST'</span><span class="Statement">)</span><span class="Identifier">{</span>
+<span class="lnr">15 </span>            <span class="Identifier">this</span>.xhr.<span class="Statement">open</span><span class="Statement">(</span><span class="Constant">'POST'</span>, sUrl, <span class="Boolean">true</span><span class="Statement">)</span><span class="Statement">;</span>
+<span class="lnr">16 </span>            <span class="Identifier">this</span>.xhr.<span class="Statement">setRequestHeader</span><span class="Statement">(</span><span class="Constant">'Content-Type'</span>, <span class="Constant">'application/x-www-form-urlencoded'</span><span class="Statement">)</span><span class="Statement">;</span>
+<span class="lnr">17 </span>            <span class="Identifier">this</span>.xhr.<span class="Statement">send</span><span class="Statement">(</span>oParam<span class="Statement">)</span><span class="Statement">;</span>
+<span class="lnr">18 </span>        <span class="Identifier">}</span>
+<span class="lnr">19 </span>    <span class="Identifier">}</span><span class="Statement">,</span>
+<span class="lnr">20 </span>    getScript: <span class="Identifier">function</span><span class="Title">(sUrl, callback)</span> <span class="Identifier">{</span>
+<span class="lnr">21 </span>        <span class="Identifier">var</span> script <span class="Statement">=</span> <span class="Constant">document</span>.<span class="Statement">createElement</span><span class="Statement">(</span><span class="Constant">'script'</span><span class="Statement">)</span><span class="Statement">;</span>
+<span class="lnr">22 </span>        script.src <span class="Statement">=</span> sUrl<span class="Statement">;</span>
+<span class="lnr">23 </span>        <span class="Constant">document</span>.body.<span class="Statement">appendChild</span><span class="Statement">(</span>script<span class="Statement">)</span><span class="Statement">;</span>
+<span class="lnr">24 </span>        script.<span class="Statement">onreadystatechange</span> <span class="Statement">=</span> script.<span class="Special">onload</span> <span class="Statement">=</span> <span class="Identifier">function</span><span class="Title">()</span> <span class="Identifier">{</span>
+<span class="lnr">25 </span>            <span class="Statement">if</span> <span class="Statement">(</span>!<span class="Identifier">this</span>.<span class="Type">readyState</span> <span class="Boolean">||</span> <span class="Identifier">this</span>.<span class="Type">readyState</span> <span class="Statement">==</span> <span class="Constant">'loaded'</span> <span class="Boolean">||</span> <span class="Identifier">this</span>.<span class="Type">readyState</span> <span class="Statement">==</span> <span class="Constant">'complete'</span><span class="Statement">)</span> <span class="Identifier">{</span>
+<span class="lnr">26 </span>                callback<span class="Statement">()</span><span class="Statement">;</span>
+<span class="lnr">27 </span>            <span class="Identifier">}</span><span class="Statement">;</span>
+<span class="lnr">28 </span>        <span class="Identifier">}</span><span class="Statement">;</span>
 <span class="lnr">29 </span>    <span class="Identifier">}</span><span class="Statement">,</span>
-<span class="lnr">30 </span>    getScript: <span class="Identifier">function</span><span class="Title">(sUrl, callback)</span> <span class="Identifier">{</span>
-<span class="lnr">31 </span>        <span class="Identifier">var</span> script <span class="Statement">=</span> <span class="Constant">document</span>.<span class="Statement">createElement</span><span class="Statement">(</span><span class="Constant">'script'</span><span class="Statement">)</span><span class="Statement">;</span>
-<span class="lnr">32 </span>        script.src <span class="Statement">=</span> sUrl<span class="Statement">;</span>
-<span class="lnr">33 </span>        <span class="Constant">document</span>.body.<span class="Statement">appendChild</span><span class="Statement">(</span>script<span class="Statement">)</span><span class="Statement">;</span>
-<span class="lnr">34 </span>        script.<span class="Statement">onreadystatechange</span> <span class="Statement">=</span> script.<span class="Special">onload</span> <span class="Statement">=</span> <span class="Identifier">function</span><span class="Title">()</span> <span class="Identifier">{</span>
-<span class="lnr">35 </span>            <span class="Statement">if</span> <span class="Statement">(</span>!<span class="Identifier">this</span>.<span class="Type">readyState</span> <span class="Boolean">||</span> <span class="Identifier">this</span>.<span class="Type">readyState</span> <span class="Statement">==</span> <span class="Constant">'loaded'</span> <span class="Boolean">||</span> <span class="Identifier">this</span>.<span class="Type">readyState</span> <span class="Statement">==</span> <span class="Constant">'complete'</span><span class="Statement">)</span> <span class="Identifier">{</span>
-<span class="lnr">36 </span>                callback<span class="Statement">()</span><span class="Statement">;</span>
-<span class="lnr">37 </span>            <span class="Identifier">}</span><span class="Statement">;</span>
-<span class="lnr">38 </span>        <span class="Identifier">}</span><span class="Statement">;</span>
-<span class="lnr">39 </span>    <span class="Identifier">}</span><span class="Statement">,</span>
-<span class="lnr">40 </span>    paramFormat: <span class="Identifier">function</span><span class="Title">(obj)</span> <span class="Identifier">{</span>
-<span class="lnr">41 </span>        <span class="Identifier">var</span> ret <span class="Statement">=</span> <span class="Constant">''</span><span class="Statement">;</span>
-<span class="lnr">42 </span>        <span class="Statement">for</span> <span class="Statement">(</span>x <span class="Statement">in</span> obj<span class="Statement">)</span> <span class="Identifier">{</span>
-<span class="lnr">43 </span>            ret <span class="Statement">+=</span> <span class="Constant">'&amp;'</span> + x + <span class="Constant">'='</span> + encodeURIComponent<span class="Statement">(</span>obj<span class="Identifier">[</span>x<span class="Identifier">]</span><span class="Statement">)</span><span class="Statement">;</span>
-<span class="lnr">44 </span>        <span class="Identifier">}</span>
-<span class="lnr">45 </span>        <span class="Statement">return</span> ret.slice<span class="Statement">(</span><span class="Constant">1</span><span class="Statement">)</span><span class="Statement">;</span>
-<span class="lnr">46 </span>    <span class="Identifier">}</span>
-<span class="lnr">47 </span><span class="Identifier">}</span><span class="Statement">;</span>
+<span class="lnr">30 </span>    paramFormat: <span class="Identifier">function</span><span class="Title">(obj)</span> <span class="Identifier">{</span>
+<span class="lnr">31 </span>        <span class="Identifier">var</span> ret <span class="Statement">=</span> <span class="Constant">''</span><span class="Statement">;</span>
+<span class="lnr">32 </span>        <span class="Statement">for</span> <span class="Statement">(</span>x <span class="Statement">in</span> obj<span class="Statement">)</span> <span class="Identifier">{</span>
+<span class="lnr">33 </span>            ret <span class="Statement">+=</span> <span class="Constant">'&amp;'</span> + x + <span class="Constant">'='</span> + encodeURIComponent<span class="Statement">(</span>obj<span class="Identifier">[</span>x<span class="Identifier">]</span><span class="Statement">)</span><span class="Statement">;</span>
+<span class="lnr">34 </span>        <span class="Identifier">}</span>
+<span class="lnr">35 </span>        <span class="Statement">return</span> ret.slice<span class="Statement">(</span><span class="Constant">1</span><span class="Statement">)</span><span class="Statement">;</span>
+<span class="lnr">36 </span>    <span class="Identifier">}</span>
+<span class="lnr">37 </span><span class="Identifier">}</span><span class="Statement">;</span>
 </pre>
 </body>
 </html>
