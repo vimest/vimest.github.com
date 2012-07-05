@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Vimest" />
+	<meta name="generator" content="GVIM 7.3" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />	
+	<title>xyzweibo</title>
+</head>
+<body>
+	<div id="login"></div>
+	<a href="javascript:;" id="publish">post a new weibo</a>
+	<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1592660272"></script>
+	<script>
+		(function(){
+			var xyz;
+			WB2.anyWhere(function(W){
+				var xyz = W;
+				W.widget.connectButton({
+					'id':'login',
+					'callback':{
+						'login':function(O){
+							xyz.widget.publish({
+								'id':'publish'
+							});
+						},
+						'logout':function(O){}
+					}
+				});
+			});
+		})();
+	</script>
+</body>
+</html>
