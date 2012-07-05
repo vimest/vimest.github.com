@@ -7,10 +7,19 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />	
 	<title>xyzweibo</title>
+	<style>
+		*{margin:0;padding:0;}
+		html{background-color:#333;}
+		body{padding:1em;color:#f1f1f1;}
+		a:link,a:visited{text-decoration:none;color:#fff;}
+		a:hover,active{text-decoration:underline;}
+
+		#publish{display:none;margin:10px 0;}
+	</style>
 </head>
 <body>
 	<div id="login"></div>
-	<a href="javascript:;" id="publish">post a new weibo</a>
+	<div id="publish">post a new weibo</div>
 	<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1592660272"></script>
 	<script>
 		(function(){
@@ -24,8 +33,11 @@
 							xyz.widget.publish({
 								'id':'publish'
 							});
+							document.getElementById('publish').style.display = 'block';
 						},
-						'logout':function(O){}
+						'logout':function(O){
+							document.getElementById('publish').style.display = 'none';
+						}
 					}
 				});
 			});
