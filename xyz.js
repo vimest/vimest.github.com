@@ -3,7 +3,7 @@ var xyz = {
 	byId:function(i){
 		return document.getElementById(i);
 	},
-	byClass:function(c,p,t){
+	byClass:function(c,t,p){
 		var r = [];
 		var c = new RegExp('\\b'+c+'\\b');
 		var t = t || '*';
@@ -29,6 +29,31 @@ var xyz = {
 	},
 	prev:function(o){
 		return (o.previousElementSibling || o.previousSibling);
+	},
+	style:function(o,p,v){
+		switch(arguments.length) {
+			case 2:
+				if(typeof p === 'object'){
+					for(x in p){
+						o.style[x] = p[x];
+						if(x === 'opacity'){
+							o.style.filter = 'alpha(opacity:'+p[x]*100+')';
+						};
+					};
+				}else{
+					return o.currentStyle ? o.currentStyle[p] : getComputedStyle(o,null)[p];
+				};
+				break;
+			case 3:
+				if(p === 'opacity'){
+					o.style.filter = 'alpha(opacity:'+v*100+')';
+				};
+				o.style[p] = v;
+				break;
+		};
+	},
+	animate:function(){
+
 	},
 
 	//for event
@@ -60,6 +85,24 @@ var xyz = {
 	},
 	removeAttr:function(o,n){
 		o.removeAttribute(n);
+	},
+	hasClass:function(o,c){
+		var r = new RegExp('(\\s|^)'+c+'(\\s|$)');
+		return !!o.className.match(r);
+	},
+	addClass:function(o,c){
+		if(!this.hasClass(o,c)){
+			o.className  === '' ? o.className = c : o.className += ' ' + c;
+		};
+	},
+	removeClass:function(o,c){
+		var r = new RegExp('(\\s|^)'+c+'(\\s|$)');
+		if(this.hasClass(o,c)){
+			o.className = o.className.replace(r,'');
+		};
+	},
+	toggleClass:function(o,c){
+		this.hasClass(o,c) ? this.removeClass(o,c) : this.addClass(o,c);
 	},
 
 	//for cookie
@@ -109,7 +152,7 @@ var xyz = {
 		var a = [];
 		for(var i=0;i<s.length;i++){
 			a.push(s.charCodeAt(i))
-		}
+		};
 		return a;
 	}
 };
