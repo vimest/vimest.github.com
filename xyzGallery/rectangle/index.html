@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Vimest" />
+	<meta name="generator" content="GVIM 7.3" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />	
+	<title>rectangle social buttons</title>
+	<style>
+		*{margin:0;padding:0;}
+		html{background-image:url(images/background.jpg);}
+		#rectangle{list-style:none;width:440px;height:390px;position:absolute;left:50%;top:50%;margin:-195px 0 0 -220px;}
+		#rectangle li{
+			margin:28px 15px;float:left;
+		}
+		#rectangle li a{
+			background:url(images/item.png) no-repeat;
+			box-shadow:0 0 5px rgba(0,0,0,0.8),0 5px 5px rgba(0,0,0,.3);border-radius:7px;
+			display:block;position:relative;font:11px georgia,serif;color:#80888d;
+			text-shadow:1px 1px 1px rgba(0,0,0,0.3);padding:10px 0;display:table-cell;vertical-align:middle;
+			text-align:center;width:78px;height:54px;text-decoration:none;
+		}
+		#rectangle li img{display:block;margin:0 auto;}
+		#rectangle .tips{background:url(images/tips.png) no-repeat;width:90px;height:31px;line-height:21px;display:block;position:absolute;left:-4px;top:-40px;color:#fff;opacity:0;
+			-webkit-transition:opacity 0.8s;
+			-o-transition:opacity 0.8s;
+		}
+		#rectangle li a:hover .tips{opacity:1;}
+		#rectangle li a:active{box-shadow:none;}
+
+		@-webkit-keyframes rock{
+			from{opacity:0;}
+			to{opacity:1;}
+		}
+
+		#rectangle li:nth-child(1){-webkit-animation:rock 1.5s 0.5s;}
+		#rectangle li:nth-child(2){-webkit-animation:rock 1.5s 0.6s;}
+		#rectangle li:nth-child(3){-webkit-animation:rock 1.5s 0.7s;}
+		#rectangle li:nth-child(4){-webkit-animation:rock 1.5s 0.8s;}
+		#rectangle li:nth-child(5){-webkit-animation:rock 1.5s 0.9s;}
+		#rectangle li:nth-child(6){-webkit-animation:rock 1.5s 1s;}
+		#rectangle li:nth-child(7){-webkit-animation:rock 1.5s 1.1s;}
+		#rectangle li:nth-child(8){-webkit-animation:rock 1.5s 1.2s;}
+		#rectangle li:nth-child(9){-webkit-animation:rock 1.5s 1.3s;}
+		#rectangle li:nth-child(10){-webkit-animation:rock 1.5s 1.4s;}
+		#rectangle li:nth-child(11){-webkit-animation:rock 1.5s 1.5s;}
+		#rectangle li:nth-child(12){-webkit-animation:rock 1.5s 1.6s;}
+	</style>
+</head>
+<body>
+	<ul id="rectangle">
+		<li>
+			<a href="###" title="">
+				<img src="images/facebook.png" alt="" title="" />
+				<span class="tips">facebook</span>
+			</a>
+		</li>
+		<li>
+		<a href="###" title="">
+			<img src="images/twitter.png" alt="" title="" />
+			<span class="tips">twitter</span>
+		</a>
+		</li>
+		<li>
+		<a href="###" title="">
+			<img src="images/dribble.png" alt="" title="" />
+			<span class="tips">dribble</span>
+		</a>
+		</li>
+		<li>
+		<a href="###" title="">
+			<img src="images/flickr.png" alt="" title="" />
+			<span class="tips">flickr</span>
+		</a>
+		</li>
+		<li>
+		<a href="###" title="">
+			<img src="images/yahoo.png" alt="" title="" />
+			<span class="tips">yahoo</span>
+		</a>
+		</li>
+		<li>
+		<a href="###" title="">
+			<img src="images/stumble.png" alt="" title="" />
+			<span class="tips">stumble</span>
+		</a>
+		</li>
+		<li>
+		<a href="###" title="">
+			<img src="images/youtube.png" alt="" title="" />
+			<span class="tips">youtube</span>
+		</a>
+		</li>
+		<li>
+		<a href="###" title="">
+			<img src="images/technorati.png" alt="" title="" />
+			<span class="tips">technorati</span>
+		</a>
+		</li>
+		<li>
+		<a href="###" title="">
+			<img src="images/google+.png" alt="" title="" />
+			<span class="tips">google+</span>
+		</a>
+		</li>
+		<li>
+		<a href="###" title="">
+			<img src="images/delicious.png" alt="" title="" />
+			<span class="tips">delicious</span>
+		</a>
+		</li>
+		<li>
+		<a href="###" title="">
+			<img src="images/pinterest.png" alt="" title="" />
+			<span class="tips">pinterest</span>
+		</a>
+		</li>
+		<li>
+		<a href="###" title="">
+			<img src="images/rss.png" alt="" title="" />
+			<span class="tips">rss</span>
+		</a>
+		</li>
+	</ul>
+</body>
+</html>
